@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-db-noticias
+spec:  
+  selector:
+    matchLabels:
+      app: db-noticias
+  template:
+    metadata:
+      labels:
+        app: db-noticias
+    spec:
+      containers:
+      - name: db-noticias-containers
+        image: aluracursos/mysql-db:1
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3306
+        envFrom:
+          - configMapRef:
+              name: configmap-db-noticias

@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - name: sistema-noticias-container
-    image: aluracursos/sistema-noticias:1
+    image: aluracursos/sistema-noticias:1    
     resources:
       limits:
         memory: "128Mi"
